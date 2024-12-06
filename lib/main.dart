@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
     } else if (snapshot.hasData) {
     return Home22(); // home() OR verify email
     } else {
-    return Login();
+    return Home22();
     }
     },
     )),

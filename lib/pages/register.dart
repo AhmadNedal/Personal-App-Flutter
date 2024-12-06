@@ -6,6 +6,7 @@ import 'package:ahmadapi/language.dart';
 import 'package:ahmadapi/pages/login.dart';
 import 'package:ahmadapi/shared/colors.dart';
 import 'package:ahmadapi/shared/contants.dart';
+import 'package:ahmadapi/shared/snackpar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -172,6 +173,7 @@ class _RegisterState extends State<Register> {
                               context,
                               MaterialPageRoute(builder: (context) => Login()),
                             );
+                            showSnackBar(context, "Account Created") ; 
                           } else {
                             setState(() {
                               str = "Erorr";

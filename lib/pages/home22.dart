@@ -1,15 +1,19 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:ahmadapi/language.dart';
+import 'package:ahmadapi/model/item.dart';
 import 'package:ahmadapi/pages/About.dart';
 import 'package:ahmadapi/pages/android.dart';
 import 'package:ahmadapi/pages/checkout.dart';
 import 'package:ahmadapi/pages/descktop.dart';
+import 'package:ahmadapi/pages/details_screen.dart';
 import 'package:ahmadapi/pages/home.dart';
 import 'package:ahmadapi/pages/ios.dart';
+import 'package:ahmadapi/pages/login.dart';
 import 'package:ahmadapi/provider/cart.dart';
 import 'package:ahmadapi/shared/appbar.dart';
 import 'package:ahmadapi/shared/colors.dart';
+import 'package:ahmadapi/shared/snackpar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -21,7 +25,8 @@ class Home22 extends StatefulWidget {
   @override
   State<Home22> createState() => _Home22State();
 }
-    bool show = false;
+
+bool show = false;
 
 class _Home22State extends State<Home22> {
   @override
@@ -53,7 +58,6 @@ class _Home22State extends State<Home22> {
       }
     }
 
-      
     accountimagbac() {
       if (userses?.photoURL == null) {
         return "https://assets-global.website-files.com/5e29a0c20f2d35836e6bc609/5eeb17f3f726788de8b4d3b7_0620_Blog_Product_Heart.jpg";
@@ -61,9 +65,6 @@ class _Home22State extends State<Home22> {
         return userses!.photoURL;
       }
     }
-
-    
-
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -86,7 +87,7 @@ class _Home22State extends State<Home22> {
                     height: 28,
                   ),
                   Container(
-                    child: Image.asset("images/any/ahmad.png"),
+                    child: Image.asset("images/any/ahmadev.png"),
                     height: 270,
                   ),
                   SizedBox(
@@ -105,7 +106,7 @@ class _Home22State extends State<Home22> {
                     height: 8,
                   ),
                   Text(
-                    'Flutter || Android || Java',
+                    'Flutter || C++ || Web Developer',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Color.fromARGB(255, 46, 97, 47),
@@ -145,7 +146,7 @@ class _Home22State extends State<Home22> {
                                   Column(
                                     children: [
                                       Text(
-                                        "Java",
+                                        "C++",
                                         style: TextStyle(fontSize: 15.5),
                                       ),
                                       SizedBox(
@@ -173,7 +174,7 @@ class _Home22State extends State<Home22> {
                                         height: 10,
                                       ),
                                       Text(
-                                        "Java FX",
+                                        "Html || Css",
                                         style: TextStyle(fontSize: 14.5),
                                       ),
                                       SizedBox(
@@ -312,7 +313,7 @@ class _Home22State extends State<Home22> {
                                                       width: 2.5)),
                                             ),
                                             Container(
-                                              width: 105,
+                                              width: 125,
                                               decoration: BoxDecoration(
                                                   border: Border.all(
                                                       color: Color.fromARGB(
@@ -339,7 +340,7 @@ class _Home22State extends State<Home22> {
                                                       width: 2.5)),
                                             ),
                                             Container(
-                                              width: 108,
+                                              width: 115,
                                               decoration: BoxDecoration(
                                                   border: Border.all(
                                                       color: Color.fromARGB(
@@ -386,7 +387,8 @@ class _Home22State extends State<Home22> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Android()),
+                                  builder: (context) =>
+                                      Details(product: itemindex[0])),
                             );
                           },
                           child: Card(
@@ -394,13 +396,13 @@ class _Home22State extends State<Home22> {
                               padding: const EdgeInsets.all(18.0),
                               child: ListTile(
                                 leading: Image.asset(
-                                  "images/any/android.png",
+                                  "images/any/flutternew.png",
                                   width: 40,
                                 ),
                                 title: Padding(
                                   padding: const EdgeInsets.only(left: 10),
                                   child: Text(
-                                    "Android App ",
+                                    "Flutter App ",
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold),
                                   ),
@@ -408,49 +410,7 @@ class _Home22State extends State<Home22> {
                                 subtitle: Padding(
                                   padding: const EdgeInsets.only(left: 10),
                                   child: Text(
-                                    "Create The Application on Android ",
-                                    style: TextStyle(fontSize: 11.6),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
-                    child: Builder(
-                      builder: (context) {
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => ios()),
-                            );
-                          },
-                          child: Card(
-                            child: Padding(
-                              padding: const EdgeInsets.all(18.0),
-                              child: ListTile(
-                                leading: Image.asset(
-                                  "images/any/ios.png",
-                                  width: 42,
-                                ),
-                                title: Padding(
-                                  padding: const EdgeInsets.only(left: 10),
-                                  child: Text(
-                                    "Iphone App ",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                subtitle: Padding(
-                                  padding: const EdgeInsets.only(left: 10),
-                                  child: Text(
-                                    "Create The Application on Iphone",
+                                    "Create The Application By Dart || Flutter ",
                                     style: TextStyle(fontSize: 11.6),
                                   ),
                                 ),
@@ -471,7 +431,8 @@ class _Home22State extends State<Home22> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Descktop()),
+                                  builder: (context) =>
+                                      Details(product: itemindex[1])),
                             );
                           },
                           child: Card(
@@ -479,13 +440,13 @@ class _Home22State extends State<Home22> {
                               padding: const EdgeInsets.all(18.0),
                               child: ListTile(
                                 leading: Image.asset(
-                                  "images/any/pc.png",
-                                  width: 42,
+                                  "images/any/htmlcss.png",
+                                  width: 44,
                                 ),
                                 title: Padding(
                                   padding: const EdgeInsets.only(left: 10),
                                   child: Text(
-                                    "desktop Application",
+                                    "Website",
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold),
                                   ),
@@ -493,7 +454,51 @@ class _Home22State extends State<Home22> {
                                 subtitle: Padding(
                                   padding: const EdgeInsets.only(left: 10),
                                   child: Text(
-                                    "Create a desktop Application",
+                                    "Create The Website",
+                                    style: TextStyle(fontSize: 11.6),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                    child: Builder(
+                      builder: (context) {
+                        return InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      Details(product: itemindex[2])),
+                            );
+                          },
+                          child: Card(
+                            child: Padding(
+                              padding: const EdgeInsets.all(18.0),
+                              child: ListTile(
+                                leading: Image.asset(
+                                  "images/any/c++.jpg",
+                                  width: 42,
+                                ),
+                                title: Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Text(
+                                    "C++ || Problem Solving",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                subtitle: Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Text(
+                                    "Problem solving in Codeforces",
                                     style: TextStyle(fontSize: 11.6),
                                   ),
                                 ),
@@ -555,7 +560,7 @@ class _Home22State extends State<Home22> {
                               fontFamily: "cairo",
                             ),
                           ),
-                          leading: Icon(Icons.shop),
+                          leading: Icon(Icons.insights),
                           onTap: () {
                             Navigator.push(
                               context,
@@ -564,20 +569,7 @@ class _Home22State extends State<Home22> {
                               ),
                             );
                           }),
-                      ListTile(
-                          title: Text(prselectedservices(),
-                              style: TextStyle(
-                                fontFamily: "cairo",
-                              )),
-                          leading: Icon(Icons.add_shopping_cart),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CheckOut(),
-                              ),
-                            );
-                          }),
+                    
                       ListTile(
                           title: Text(abouttme(),
                               style: TextStyle(
@@ -597,68 +589,72 @@ class _Home22State extends State<Home22> {
                               )),
                           leading: Icon(Icons.language),
                           onTap: () {
-                          setState(() {
-                            if(show){show=false; }else {show=true; }
-                          });
+                            setState(() {
+                              if (show) {
+                                show = false;
+                              } else {
+                                show = true;
+                              }
+                            });
                           }),
-
-
-                    show? 
-                      InkWell(
-                        onTap: () {
-                          setState(() {
-                            lon = false;
-                          });
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 42),
-                          child: Row(
-                            children: [
-                              Text("English",
-                                  style: TextStyle(
-                                    fontFamily: "cairo",
-                                  )),
-                            ],
-                          ),
-                        ), )
-                    : SizedBox() ,
-
-                    
-                    
+                      show
+                          ? InkWell(
+                              onTap: () {
+                                setState(() {
+                                  lon = false;
+                                });
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 42),
+                                child: Row(
+                                  children: [
+                                    Text("English",
+                                        style: TextStyle(
+                                          fontFamily: "cairo",
+                                        )),
+                                  ],
+                                ),
+                              ),
+                            )
+                          : SizedBox(),
                       SizedBox(
                         height: 10,
                       ),
-                    
-                    show? 
-                        InkWell(
-                        onTap: () {
-                          setState(() {
-                            lon = true;
-                          });
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 42),
-                          child: Row(
-                            children: [
-                              Text("العربية",
-                                  style: TextStyle(
-                                    fontFamily: "cairo",
-                                  )),
-                            ],
-                          ),
-                        ),
-                      )
-                    : SizedBox() ,
-  
-                    
-                    
+                      show
+                          ? InkWell(
+                              onTap: () {
+                                setState(() {
+                                  lon = true;
+                                });
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 42),
+                                child: Row(
+                                  children: [
+                                    Text("العربية",
+                                        style: TextStyle(
+                                          fontFamily: "cairo",
+                                        )),
+                                  ],
+                                ),
+                              ),
+                            )
+                          : SizedBox(),
                       ListTile(
-                          title: Text(logout(),
+                          title: Text(
+                              userses?.email == null ? Loginin() : logout(),
                               style: TextStyle(
                                 fontFamily: "cairo",
                               )),
                           leading: Icon(Icons.exit_to_app),
                           onTap: () {
+                            userses?.email == null
+                                ? Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Login()),
+                                  )
+                                : showSnackBar(context, "You are logged out.");
                             FirebaseAuth.instance.signOut();
                           }),
                     ],
@@ -673,7 +669,8 @@ class _Home22State extends State<Home22> {
             ),
           ),
           appBar: AppBar(
-              actions: [ProductsAndPrice()], backgroundColor: appbarpin)),
+            backgroundColor: appbarpin,
+          )),
     );
   }
 }

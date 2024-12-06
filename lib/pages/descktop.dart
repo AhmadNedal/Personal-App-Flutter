@@ -86,7 +86,7 @@ class _DescktopState extends State<Descktop> {
                       }),
                 ),
               ),
-              Text(information(),textAlign: TextAlign.center,style: TextStyle(fontFamily: "cairo", fontSize: 19),),
+              Text("",textAlign: TextAlign.center,style: TextStyle(fontFamily: "cairo", fontSize: 19),),
                                   SizedBox(height:40,)
               
             ],

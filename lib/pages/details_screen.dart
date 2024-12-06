@@ -26,7 +26,6 @@ class _DetailsState extends State<Details> {
 
     return Scaffold(
         appBar: AppBar(
-          actions: [ProductsAndPrice()],
           iconTheme: IconThemeData(color: Colors.white),
           backgroundColor:  Color.fromARGB(255, 65, 131, 189),
           title: Text(ddetails() , style: TextStyle( fontFamily: "cairo" ,  color: Colors.white),),
@@ -43,59 +42,13 @@ class _DetailsState extends State<Details> {
               SizedBox(
                 height: 22  ,
               ),
-              Text(
-                "\$  ${widget.product.price}" ,
-                style: TextStyle(fontSize: 20 , fontFamily: "cairo" ,  fontWeight: FontWeight.bold , color: const Color.fromARGB(255, 0, 0, 0)),
-              ),
               SizedBox(
-                height: 18,
+                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Container(
-                      padding: EdgeInsets.all(4),
-                      child: Text(
-                        "New" ,
-                        style: TextStyle(fontSize: 15 , color: Color.fromARGB(255, 255, 247, 247) ,  fontFamily: "cairo"),
-                      ),
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 158, 157, 103),
-                        borderRadius: BorderRadius.circular(4),
-                      )),
                 
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.star,
-                        size: 25,
-                        color: Color.fromARGB(255, 255, 191, 0),
-                      ),
-                      Icon(
-                        Icons.star,
-                        size: 26,
-                        color: Color.fromARGB(255, 255, 191, 0),
-                      ),
-                      Icon(
-                        Icons.star,
-                        size: 25,
-                        color: Color.fromARGB(255, 255, 191, 0),
-                      ),
-                      Icon(
-                        Icons.star,
-                        size: 25,
-                        color: Color.fromARGB(255, 255, 191, 0),
-                      ),
-                      Icon(
-                        Icons.star,
-                        size: 25,
-                        color: Color.fromARGB(255, 255, 191, 0),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    width: 66,
-                  ),
                   Row(
                     children: [
                   
@@ -120,31 +73,12 @@ class _DetailsState extends State<Details> {
                     padding: const EdgeInsets.only(left: 20),
                     child: Text(
                       ddetails(),
-                      style: TextStyle(fontSize: 22 ,  fontFamily: "cairo", fontWeight: FontWeight.bold ),
-                      textAlign: TextAlign.start,
+                      style: TextStyle(fontSize: 24 ,  fontFamily: "cairo", fontWeight: FontWeight.bold ),
+                      textAlign: TextAlign.center,
                       
                     ),
                   ),
-                  
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: Card(
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      child: InkWell(
-                        onTap: (){carttt.add(widget.product);},
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15 ,vertical: 6),
-                          child: Row(
-                            children: [
-                              Icon(Icons.add),
-                                
-                              Text(add() , style: TextStyle(fontFamily: "cairo"),),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+              
                 ],
               ),
               SizedBox(
@@ -153,7 +87,12 @@ class _DetailsState extends State<Details> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Text(
-                  widget.product.deta,
+
+                  widget.product.price == 1 ? flutterdetails() : 
+                  widget.product.price == 2 ? wepdetails() : javadetails()
+                  ,
+                  
+                  
                   style: TextStyle(
                     fontFamily: "cairo", 
                     fontSize: 17,
